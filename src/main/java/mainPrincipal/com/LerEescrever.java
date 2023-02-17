@@ -1,7 +1,8 @@
 package mainPrincipal.com;
 
 import java.io.*;
-import java.util.Scanner;;
+import java.util.Scanner;
+
 
 public class LerEescrever {
 	LerEescrever(){}
@@ -13,11 +14,21 @@ public class LerEescrever {
 	
 	public void lerArquivo() {
 	  try {
-		System.out.println("Digite o nome do arquido que deseja abrir para realizar a leitura");
+		System.out.println("Digite o caminho do arquido que deseja abrir para realizar a leitura");
 		String nome = lert.next();
-		FileReader reader = new FileReader(nome);	
-		//System.out.println(reader);
+		FileReader stream = new FileReader(nome);	
+		BufferedReader reader = new BufferedReader(stream);
+	    //Lê uma linha do arquivo
+	    String linha = reader.readLine();
+	    while (linha != null){
+	      System.out.println(linha);
+	      //Lê a próxima linha do arquivo
+	      linha = reader.readLine();
+	      reader.close();
+	      //Fecha o arquivo
+	      stream.close();
 	 }
+	  }
 	  catch (IOException e) {// 
 		    e.printStackTrace();
 		    System.out.println("arquivo não existe");
@@ -25,9 +36,8 @@ public class LerEescrever {
 	}
 	public void escreverNoArquivo() {
 		try {
-			
-	
-		System.out.println("Digite o nome do arquido que deseja abrir para realizar a escrita");
+
+		System.out.println("Digite o caminho do arquido que deseja abrir para realizar a escrita");
 		String nome = lert.next();
 		FileWriter stream = new FileWriter(nome);
 		PrintWriter print = new PrintWriter(stream);
@@ -37,8 +47,8 @@ public class LerEescrever {
 	    //Escreve no arquivo
 	    print.print(txt);
 	    print.close();
-	    //Fecha o arquivo
 	    stream.close();
+	  
 		}catch (IOException e) {// 
 		    e.printStackTrace();
 		    System.out.println("arquiv não existe");
