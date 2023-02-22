@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class CriarArquivo {
 	private boolean status = false;
 	public int escolha;
+	public int entrada;
 	private Scanner lert;
 	private FileReader stream;
 	CriarArquivo(){
@@ -36,13 +37,15 @@ public class CriarArquivo {
 		String nome = lert.next();
 	
 /***************************************************/
-	if (status == false) {
+	
 		try {
 			stream = new FileReader(nome);	
 			System.out.println("ja existe arquivo com esse nome");
 			System.out.println("escolha uma das opcao a baixo:\n"
 					+ "1. Voltar ao Menu \n"
-					+ "2. sair do sistema");
+					+ "2. sair do sistema\n"
+					+ "3. Criar novo arquivo COM nome diferente");
+			entrada = lert.nextInt();	
 			
 		} catch (Exception e) {
 			status = true;
@@ -53,12 +56,17 @@ public class CriarArquivo {
 			File arquivo = new File(nome);	
 			if (arquivo.createNewFile()) {
 		System.out.println("O arquivo *"+ nome + "* foi criado com sucesso!!!");
-			}
+		status = false;
+        System.out.println("escolha uma das opcao a baixo:\n"
+				+ "1. Voltar ao Menu \n"
+				+ "2. sair do sistema\n"
+				+ "3. Criar novo arquivo");
+		entrada = lert.nextInt();	
+					}
 		} catch (Exception e) {
 			System.out.println("erro na criação do arquivo");
 		}
 		
 	 }
 	}
- }
 }//class

@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class LerEescrever {
 	LerEescrever(){}
 	
-	
+	private boolean status = false;
+	public int entrada;
 	Scanner lert = new Scanner(System.in);
 	
 	
@@ -33,12 +34,28 @@ public class LerEescrever {
 		    e.printStackTrace();
 		    System.out.println("arquivo não existe");
 		  }
+	  
 	}
 	public void escreverNoArquivo() {
-		try {
 
 		System.out.println("Digite o caminho do arquido que deseja abrir para realizar a escrita");
 		String nome = lert.next();
+			
+			try {
+				FileReader stream = new FileReader(nome);
+				status = true;
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Nao existe arquivo com esse nome");
+				System.out.println("escolha uma das opcao a baixo:\n"
+						+ "1. Voltar ao Menu \n"
+						+ "2. sair do sistema\n");
+				entrada = lert.nextInt();
+			}	
+						
+		if(status == true) {
+		try {
 		FileWriter stream = new FileWriter(nome);
 		PrintWriter print = new PrintWriter(stream);
 	    System.out.println("arquivo aberto com sucesso!!");
@@ -48,11 +65,21 @@ public class LerEescrever {
 	    print.print(txt);
 	    print.close();
 	    stream.close();
+	    System.out.println("conteudo salvo com sucesso!!\n");
+	 
+		System.out.println("escolha uma das opcao a baixo:\n"
+				+ "1. Voltar ao Menu \n"
+				+ "2. sair do sistema\n"
+				+ "3. Adicionar mais informaçoes em um arquivo");
+		entrada = lert.nextInt();
 	  
 		}catch (IOException e) {// 
 		    e.printStackTrace();
-		    System.out.println("arquiv não existe");
+		    
 		  }
+		}
+	  
+
 	}
 }
 

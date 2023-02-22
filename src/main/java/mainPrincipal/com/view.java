@@ -1,7 +1,8 @@
 package mainPrincipal.com;
+import java.util.Scanner;
 
 public class view {
-	
+	public int usua;
 	view(){}
 
 	public void quadradro() {
@@ -16,23 +17,22 @@ public class view {
 			}
 		}
 	public void loading() {
-		System.out.println("*\n"
-				+ "*     ******      **\n"
-				+ "**    *******       ***\n"
-				+ "     *********       ****\n"
-				+ "     **********       *****\n"
-				+ "     **************      ******\n"
-				+ "     ******************     *******\n"
-				+ "     ******************     ********\n"
-				+ "     ****************   *********\n"
-				+ "     ***************   ********\n"
-				+ "     *************   *******\n"
-				+ "     **********    ******\n"
-				+ "     ********    *****\n"
-				+ "     *******    ****\n"
-				+ "     *****    ***\n"
-				+ "     ****    **\n"
-				+ "    \n");
+		
+		System.out.println("             *************************\r\n"
+				+ "            ***************************\r\n"
+				+ "       **************************************\r\n"
+				+ "         **************    ****************\r\n"
+				+ "         ************       ***************\r\n"
+				+ "         ************       ***************\r\n"
+				+ "          ****   **** loading ****    ****\r\n"
+				+ "         ************       ***************\r\n"
+				+ "         *************     ****************\r\n"
+				+ "         **************   *****************\r\n"
+				+ "       **************************************\r\n"
+				+ "            ***************************\r\n"
+				+ "             *************************");
+		
+		
 		
 		
 		
@@ -48,4 +48,22 @@ public class view {
 			}
 		}*/
 	}
+    public void menu() {
+    	Scanner lert = new Scanner(System.in);
+    	System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \r\n"
+    			+ "*     --  Escolha uma das opçoes validas a baixo  --        *\r\n"
+    			+ "*                                                           *\r\n"
+    			+ "* 1. Criar novo arquivo.                                    *\r\n"
+    			+ "* 2. adicionar dados ao um arquivo.                         *\r\n"
+    			+ "* 3. Visualizar informaçao do corpo do arquivo.             *\r\n"
+    			+ "* 4. visualizar informaçoes tecnicas sobre o arquivo.       *\r\n"
+    			+ "* 5. Excluir arquivo.                                       *\r\n"
+    			+ "* 6. Sai do gerenciador.                                    *\r\n"
+    			+ "*                                                           *\r\n"
+    			+ "*                                                           *\r\n"
+    			+ "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  ");
+    	 usua = lert.nextInt();
+    }
+	
+	
 }
