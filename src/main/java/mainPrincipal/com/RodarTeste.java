@@ -87,6 +87,22 @@ public class RodarTeste {
 				break;
 			case 4:
 				op3.dadosArquivo();
+				if(op3.entrada == 1) {
+					exibir.loading();
+					exibir.menu();
+					}
+				
+				if (op3.entrada == 2) {
+					
+					exibir.loading();
+					loop = 0;
+					System.out.println("SISTEMA FECHADO!!!");
+				}
+								
+				if(op3.entrada == 3) {
+					exibir.usua = 2;
+					exibir.loading();
+				} 
 				break;
 			case 5:
 				op1.excluirArquivo();

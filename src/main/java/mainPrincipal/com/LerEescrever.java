@@ -28,17 +28,21 @@ public class LerEescrever {
 	    
 	    
 	    while (linha != null){
-	    		while(cont <= 15) {
+	    		while(cont <= 10) {
 	      System.out.print(linha + " ");
 	      //Lê a próxima linha do arquivo
 	      linha = reader.readLine();  
-	      cont++;	
+	      cont++;
+	      /*if(cont == 5) {
+	    		
+	    	}*/	
 	      if(linha == null){
 	    		cont = 100;
-	    	}    	     
+	    	}        
 	    }	
+	    		cont = 0;
 	    	System.out.println("\n");
-	    	
+	     	
 	  } 
 	    reader.close();
 	      //Fecha o arquivo
@@ -53,6 +57,7 @@ public class LerEescrever {
 	      		+ "2. sai do sistema\n"
 	      		+ "3. ler outro arquivo");
 	      entradaler = lert.nextInt();
+	      status = false;
 	/*******************************/  
 	  if(status == true) {
 		  System.out.println("Arquivo nao encontrado");
@@ -60,6 +65,7 @@ public class LerEescrever {
 		      		+ "1. Voltar ao menu\n"
 		      		+ "2. sai do sistema");
 		  entradaler = lert.nextInt();
+		  status = false;
 	  }
 	  
 	}
