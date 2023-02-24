@@ -4,6 +4,10 @@ import java.util.*;
 
 public class RodarTeste {
 	public static void main(String[] args) {
+	
+		
+		
+		
 		Scanner lert = new Scanner(System.in);
 		CriarArquivo op1 = new CriarArquivo();
 		LerEescrever op2 = new LerEescrever();
@@ -25,33 +29,61 @@ public class RodarTeste {
 			switch (exibir.usua) {
 			case 1:
 				op1.novoArquivo();
-				/*****************/
+				
+				if(op1.entrada == 1) {
+				exibir.menu();
+				}
+				
+				if (op1.entrada == 2) {
+					loop = 0;
+					System.out.println("SISTEMA FECHADO!!!");
+				}
+				
 				if(op1.entrada == 3) {
 					exibir.usua = 1;
 					exibir.loading();
-				} if (op1.entrada == 2) {
-					loop = 0;
-					System.out.println("SISTEMA FECHADO!!!");
-				}if(op1.entrada == 1) {
-				exibir.menu();
-				}
+				} 
+				
 				break;
 /*****************************************************************/
 			case 2:
 				op2.escreverNoArquivo();
-				if(op2.entrada == 3) {
-					exibir.usua = 2;
+				
+				if(op2.entrada == 1) {
 					exibir.loading();
-				} if (op2.entrada == 2) {
+					exibir.menu();
+					}
+				
+				if (op2.entrada == 2) {
+					
+					exibir.loading();
 					loop = 0;
 					System.out.println("SISTEMA FECHADO!!!");
 				}
-				if(op2.entrada == 1) {
-					exibir.menu();
-					}
+								
+				if(op2.entrada == 3) {
+					exibir.usua = 2;
+					exibir.loading();
+				} 
 				break;
 			case 3:
 				op2.lerArquivo();
+				
+				if(op2.entradaler == 1) {
+					exibir.loading();
+					exibir.menu();
+				}
+				
+				if(op2.entradaler == 2) {
+					loop = 0;
+					exibir.loading();
+					System.out.println("SISTEMA FECHADO!!!");
+				}
+				
+				if(op2.entradaler == 3) {
+					exibir.usua = 3;
+					exibir.loading();
+				}
 				break;
 			case 4:
 				op3.dadosArquivo();
@@ -63,14 +95,15 @@ public class RodarTeste {
 				loop = 0;
 				System.out.println("SISTEMA FECHADO!!!");
 				break;
-			
 			}
 		}
 		} catch (Exception e) {
-			System.out.println("erro ao inicializar loop");
+			System.out.println("erro ao inicializar loop ");
 		}
 		
-		
+		}
+
+}	
 		
 		
 		
@@ -87,6 +120,4 @@ public class RodarTeste {
 		
 	
 		
-	}
 
-}
