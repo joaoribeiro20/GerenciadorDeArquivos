@@ -1,4 +1,4 @@
-package mainPrincipal.com;
+package mainPrincipal.br;
 
 import java.io.*;
 import java.util.Scanner;
@@ -15,13 +15,13 @@ public class LerEescrever {
 	
 	
 	public void lerArquivo() {
-	  try {
-		System.out.println("Digite o caminho do arquido que deseja abrir para realizar a leitura");
+	 
+		System.out.println("Digite o caminho do arquido que deseja abrir para realizar a leitura\n");
 		String nome = lert.next();
-		
+		try {
 		FileReader stream = new FileReader(nome);	
 		BufferedReader reader = new BufferedReader(stream);
-		
+		 
 	    //Lê uma linha do arquivo
 		int cont = 0;
 	    String linha = reader.readLine();
@@ -45,29 +45,30 @@ public class LerEescrever {
 	     	
 	  } 
 	    reader.close();
-	      //Fecha o arquivo
-	      stream.close();
+	    //Fecha o arquivo
+	    stream.close();
+	      System.out.println("  ***todos dados existente foram exibidos***");
+	      System.out.println(" Escolha uma das opçoes a baixo para continuar\n"
+	      		+ "              1. Voltar ao menu\n"
+	      		+ "              2. sai do sistema\n"
+	      		+ "              3. ler outro arquivo");
+	      entradaler = lert.nextInt();
+	      status = false;
 	  }
 	  catch (IOException e) {// 
 		  status = true;
 		  }
-	  System.out.println("todos dados existente foram exibidos\n");
-	      System.out.println("Escolha uma das opçoes a baixo para continuar\n"
-	      		+ "1. Voltar ao menu\n"
-	      		+ "2. sai do sistema\n"
-	      		+ "3. ler outro arquivo");
-	      entradaler = lert.nextInt();
-	      status = false;
+	 
 	/*******************************/  
 	  if(status == true) {
-		  System.out.println("Arquivo nao encontrado");
+		  System.out.println("      ***Arquivo nao encontrado!!!***");
 		  System.out.println("Escolha uma das opçoes a baixo para continuar\n"
-		      		+ "1. Voltar ao menu\n"
-		      		+ "2. sai do sistema");
+		      		+ "              1. Voltar ao menu\n"
+		      		+ "              2. sai do sistema");
 		  entradaler = lert.nextInt();
 		  status = false;
 	  }
-	  
+	   
 	}
 	public void escreverNoArquivo() {
 
@@ -80,10 +81,10 @@ public class LerEescrever {
 				
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
-				System.out.println("Nao existe arquivo com esse nome");
-				System.out.println("escolha uma das opcao a baixo:\n"
-						+ "1. Voltar ao Menu \n"
-						+ "2. sair do sistema\n");
+				System.out.println("     Nao existe arquivo com esse nome");
+				System.out.println("   escolha uma das opcao a baixo:\n"
+						+ "        1. Voltar ao Menu \n"
+						+ "        2. sair do sistema\n");
 				entrada = lert.nextInt();
 				status = false;
 			}	
@@ -92,11 +93,8 @@ public class LerEescrever {
 		try {
 		FileWriter stream = new FileWriter(nome);
 		PrintWriter print = new PrintWriter(stream);
-	    System.out.println("arquivo aberto com sucesso!!");
-	    
-	    
-	    
-	    System.out.println("Escreva a baixo no arquivo");
+	    System.out.println(" -----arquivo aberto com sucesso-----!!");
+	    System.out.println("      Escreva a baixo no arquivo");
 	   int linha = 1;
 	    for(int i = 0; i < linha; i++) {
 	    	//txt[i] = lert.next();
@@ -107,21 +105,23 @@ public class LerEescrever {
 	       
 			if(ent.equals("fechar")) {
 	        	linha = 0;
-	        	System.out.println("teste entrou no if");
+	        	//print.close();
+	    	    
+	    
 	        }
 	        linha ++;
 	    }
-	    
-	    print.close();
 	    stream.close();
-	    
-	  
-		}catch (IOException e) {// 
+	    System.out.println("\n arquivo fechado");
+
+		}
+		catch (IOException e) {// 
 		    e.printStackTrace();
 		    
 		  }
-		System.out.println("\n conteudo salvo com sucesso!!\n");
-	 
+		System.out.println(""
+				+ "------conteudo salvo com sucesso!!------\n");
+	  
 		System.out.println("escolha uma das opcao a baixo:\n"
 				+ "1. Voltar ao Menu \n"
 				+ "2. sair do sistema\n"
